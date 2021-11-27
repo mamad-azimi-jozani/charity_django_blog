@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,7 +9,7 @@
         <meta content="Free Website Template" name="description">
 
         <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
+        <link href='{% static "img/favicon.ico" %}' rel="icon">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,12 +17,12 @@
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href='{% static "js/tib/flaticon/font/flaticon.css" %}' rel="stylesheet">
+        <link href='{% static "js/tib/animate/animate.min.css" %}' rel="stylesheet">
+        <link href='{% static "js/tib/owlcarousel/assets/owl.carousel.min.css" %}' rel="stylesheet">
 
         <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
+        <link href='{% static "css/style.css" %}' rel="stylesheet">
     </head>
 
     <body>
@@ -66,22 +67,10 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="causes.html" class="nav-item nav-link">Causes</a>
-                        <a href="event.html" class="nav-item nav-link">Events</a>
-                        <a href="blog.html" class="nav-item nav-link">Blog</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu">
-                                <a href="single.html" class="dropdown-item">Detail Page</a>
-                                <a href="service.html" class="dropdown-item">What We Do</a>
-                                <a href="team.html" class="dropdown-item">Meet The Team</a>
-                                <a href="donate.html" class="dropdown-item">Donate Now</a>
-                                <a href="volunteer.html" class="dropdown-item">Become A Volunteer</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                        <a href="{% url 'home:index' %}" class="nav-item nav-link">Home</a>
+                        <a href="{% url 'home:about' %}" class="nav-item nav-link">About</a>
+                        <a href="#" class="nav-item nav-link">Blog</a>
+                        <a href="{% url 'home:contact' %}" class="nav-item nav-link active">Contact</a>
                     </div>
                 </div>
             </div>
@@ -114,7 +103,7 @@
                     <h2>Contact for any query</h2>
                 </div>
                 <div class="contact-img">
-                    <img src="img/contact.jpg" alt="Image">
+                    <img src='{% static "img/contact.jpg" %}' alt="Image">
                 </div>
                 <div class="contact-form">
                         <div id="success"></div>
@@ -220,17 +209,17 @@
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/parallax/parallax.min.js"></script>
+        <script src='{% static "js/tib/easing/easing.min.js" %}'></script>
+        <script src='{% static "js/tib/owlcarousel/owl.carousel.min.js" %}' ></script>
+        <script src='{% static "js/tib/waypoints/waypoints.min.js" %}'></script>
+        <script src='{% static "js/tib/counterup/counterup.min.js" %}'></script>
+        <script src='{% static "js/tib/parallax/parallax.min.js" %}'></script>
         
         <!-- Contact Javascript File -->
-        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
+        <script src='{% static "js/mail/jqBootstrapValidation.min.js" %}'></script>
+        <script src='{% static "js/mail/contact.js" %}'></script>
 
         <!-- Template Javascript -->
-        <script src="js/main.js"></script>
+        <script src='{% static "js/main.js" %}'></script>
     </body>
 </html>
