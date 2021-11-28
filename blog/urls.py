@@ -3,6 +3,6 @@ from.views import *
 app_name = 'blog'
 
 urlpatterns = [
-    path('', index_view, name='index'),
+    path('', index_view, name='index_blog'),
     path('detail', detail_view, name='detail'),
 ]
