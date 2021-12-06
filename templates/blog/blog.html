@@ -32,7 +32,7 @@
                             <div class="blog-text">
                                 <h3><a href="{% url 'blog:detail' post_id=post.id %}">{{ post.title }}</a></h3>
                                 <p>
-                                    {{ post.content }}
+                                    {{ post.content|truncatewords:20 }}
                                 </p>
                             </div>
                             <div class="blog-meta">
