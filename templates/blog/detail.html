@@ -445,7 +445,7 @@
                                     {% post_category as categories %}
                                     <ul>
                                         {% for cat,count in categories.items %}
-                                        <li><a href="">{{ cat }}</a><span>{{ count }}</span></li>
+                                        <li><a href="{% url 'blog:category' cat_name=cat %}">{{ cat }}</a><span>{{ count }}</span></li>
                                         {% endfor %}
                                     </ul>
                                 </div>
