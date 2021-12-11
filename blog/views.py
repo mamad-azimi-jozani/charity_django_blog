@@ -12,3 +12,13 @@ def detail_view(request, post_id):
         "post" : post
     }
     return render(request, 'blog/detail.html', context)
+
+def category_view(request, cat_name):
+    posts = Post.objects.filter(status=1)
+    posts = posts.filter(category__name=cat_name)
+    context = {
+        "posts": posts
+    }
+    return render(request, 'blog/blog.html', context)
+
+
