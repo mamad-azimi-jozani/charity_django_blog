@@ -15,5 +15,9 @@ def detail_view(request, post_id):
     }
     return render(request, 'blog/detail.html', context)
 
-
+def author_view(request, author_name):
+    posts = Post.objects.filter(status=1)
+    posts = posts.filter(author__username=author_name)
+    context = {"posts": posts}
+    return render(request, 'blog/blog.html', context)
 
