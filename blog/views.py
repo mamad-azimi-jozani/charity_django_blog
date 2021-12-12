@@ -1,10 +1,12 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Post
 # Create your views here.
-def index_view(request, cat_name=None):
+def index_view(request, **kwargs):
     posts = Post.objects.filter(status=1)
-    if cat_name:
-        posts = posts.filter(category__name=cat_name)
+    if kwargs.get("cat_name"):
+        posts = posts.filter(category__name=kwargs.get("cat_name"))
+    if kwargs.get("author_name"):
+        posts = posts.filter(author__username=kwargs.get("author_name"))
     context = {"posts": posts}
     return render(request, 'blog/blog.html', context)
 
@@ -15,9 +17,4 @@ def detail_view(request, post_id):
     }
     return render(request, 'blog/detail.html', context)
 
-def author_view(request, author_name):
-    posts = Post.objects.filter(status=1)
-    posts = posts.filter(author__username=author_name)
-    context = {"posts": posts}
-    return render(request, 'blog/blog.html', context)
 
