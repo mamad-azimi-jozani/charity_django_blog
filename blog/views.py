@@ -17,4 +17,10 @@ def detail_view(request, post_id):
     }
     return render(request, 'blog/detail.html', context)
 
+def blog_search(request):
+    posts = Post.objects.filter(status=1)
+    if request.method == 'GET':
+        posts = posts.filter(title__contains=request.GET.get('s'))
+    context = {"posts": posts}
+    return render(request, 'blog/blog.html', context)
 
