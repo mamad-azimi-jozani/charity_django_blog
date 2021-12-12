@@ -36,7 +36,7 @@
                                 </p>
                             </div>
                             <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
+                                <p><i class="fa fa-user"></i><a href="{% url 'blog:author' author_name=post.author.username %}">{{ post.author }}</a></p>
                                 <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
                             </div>
                         </div>
