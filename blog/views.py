@@ -1,12 +1,26 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Post
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 # Create your views here.
 def index_view(request, **kwargs):
     posts = Post.objects.filter(status=1)
+
     if kwargs.get("cat_name"):
         posts = posts.filter(category__name=kwargs.get("cat_name"))
     if kwargs.get("author_name"):
         posts = posts.filter(author__username=kwargs.get("author_name"))
+
+    posts = Paginator(posts, 2)
+
+    try:
+        page_number = request.GET.get('page')
+        posts = posts.get_page(page_number)
+    except EmptyPage:
+        posts = posts.page(1)
+    except PageNotAnInteger:
+        posts = posts.page(1)
+
     context = {"posts": posts}
     return render(request, 'blog/blog.html', context)
 
