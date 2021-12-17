@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .forms import ContactForm
 from .models import Contact
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib import messages
 
 # Create your views here.
@@ -19,10 +19,10 @@ def contact_view(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Contact request submitted successfully')
-            return render(request, 'home/contact.html', {'form': ContactForm(request.GET)})
+            return HttpResponseRedirect('/')
         else:
             messages.error(request, 'Invalid form submission.')
-            messages.error(request, form.errors)
+            return render(request, 'home/contact.html', {'form': ContactForm(request.GET)})
 
     context = {
         "form": form
