@@ -3,6 +3,7 @@ from .forms import ContactForm
 from .models import Contact
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib import messages
+from django.urls import reverse
 
 # Create your views here.
 def index_view(request):
@@ -19,7 +20,7 @@ def contact_view(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Contact request submitted successfully')
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse('home:index'))
         else:
             messages.error(request, 'Invalid form submission.')
             return render(request, 'home/contact.html', {'form': ContactForm(request.GET)})
