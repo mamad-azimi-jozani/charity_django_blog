@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
+
     'django.contrib.humanize',
     'blog',
     'home',
@@ -62,7 +65,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
-
+SITE_ID = 2
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
