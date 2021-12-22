@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "taggit",
 
+    'django_summernote',
     'django.contrib.humanize',
     'blog',
     'home',
