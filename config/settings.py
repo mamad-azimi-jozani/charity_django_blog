@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_extensions',
     "django.contrib.sites",
     "django.contrib.sitemaps",
+    "robots",
 
     'django.contrib.humanize',
     'blog',
