@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "robots",
     "debug_toolbar",
     "taggit",
+    'captcha',
 
     'django_summernote',
     'django.contrib.humanize',
