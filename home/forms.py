@@ -1,5 +1,6 @@
 from django import forms
 from .models import Contact
+from captcha.fields import CaptchaField
 
 class ContactForm(forms.ModelForm):
     name = forms.CharField(error_messages={
@@ -14,6 +15,7 @@ class ContactForm(forms.ModelForm):
     message = forms.CharField(widget=forms.Textarea, error_messages={
         'required': 'please enter message'
     })
+    captcha = CaptchaField()
     class Meta:
         model = Contact
         fields = "__all__"
