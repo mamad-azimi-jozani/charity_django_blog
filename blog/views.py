@@ -10,7 +10,8 @@ def index_view(request, **kwargs):
         posts = posts.filter(category__name=kwargs.get("cat_name"))
     if kwargs.get("author_name"):
         posts = posts.filter(author__username=kwargs.get("author_name"))
-
+    if kwargs.get('tag_name'):
+        posts = posts.filter(tags__name__in=[kwargs['tag_name']])
     posts = Paginator(posts, 2)
 
     try:
